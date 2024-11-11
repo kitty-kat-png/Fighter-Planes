@@ -24,5 +24,7 @@ public class GameManager : MonoBehaviour
     void CreateEnemy()
     {
         Instantiate(enemy, new Vector3(Random.Range(-9f, 9f), 9f, 0), Quaternion.identity);
+        Instantiate(enemy2, new Vector3(Random.Range(-9f, 9f), 9f, 0), Quaternion.identity);
+
     }
 }
