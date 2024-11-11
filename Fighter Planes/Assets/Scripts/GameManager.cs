@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject enemy;
+    public GameObject enemy2;
 
     // Start is called before the first frame update
     void Start()
