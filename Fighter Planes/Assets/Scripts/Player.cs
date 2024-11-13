@@ -47,7 +47,18 @@ if (transform.position.y > 8.5f || transform.position.y <= -8.5f)
 {
 transform.position = new Vector3(transform.position.x,
 transform.position.y * -1, 0);
+
+if (transform.position.y > (screen.height/2))
+{
+  transform.position.y = newVector(transform.position.x, (screen.height/2), 0);
+
+if (transform.position.x)> (screen.width) && (transform.position)< (screen.width)
+{
+  transform.position.x = newVector2 ((screen.width), transform.position.y, 0);
 }
+
+}
+
 }
 void Shooting()
 {
