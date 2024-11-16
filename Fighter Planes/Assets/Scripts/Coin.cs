@@ -16,7 +16,7 @@ public class Coin : MonoBehaviour
         Destroy(this.gameObject, 2);
     }
 
-    private void OnTriggerEnter2D(Collider2D whatIHit)
+    public void OnTriggerEnter2D(Collider2D whatIHit)
     {
         if (whatIHit.tag == "Player")
         {
