@@ -7,10 +7,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      {
-          PlayerPrefs.SetInt("Lives", 3); //setting players initial lives.
-      }
-  }
+
     }
 
     // Update is called once per frame
@@ -21,4 +18,22 @@ public class NewBehaviourScript : MonoBehaviour
  GameObject.Find("livesUI").GetComponent<Text>().text = "Lives : " + Lives;
 }
     }
+    void OnCollisionEnter(Collision collision)
+    {
+      if (collision.GameObject.CompareTag("Enemy"))
+      {
+        lives -= 1;
+        lives = PlayerPrefs.GetInt("lives")
+         PlayerPrefs.SetInt("Lives", lives);
+
+      if (lives <= 0)
+      {
+        gameOver = true
+        Debug.Log ("Game Over")
+        Destroy (this.GameObject);
+      }
+    }
+
+  }
+
 }

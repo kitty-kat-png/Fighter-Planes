@@ -7,12 +7,16 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject enemy;
+    private bool isPlayerAlive;
+
+    public TextMeshProUGUI gameOverText;
 
     // Start is called before the first frame update
     void Start()
     {
         Instantiate(player, transform.position, Quaternion.identity);
         InvokeRepeating("CreateEnemy", 1f, 3f);
+        isPlayerAlive = true;
     }
 
     // Update is called once per frame
@@ -26,6 +30,7 @@ public class GameManager : MonoBehaviour
         Instantiate(enemy, new Vector3(Random.Range(-9f, 9f), 9f, 0), Quaternion.identity);
     }
 
+    public int lives;
 
 
     private void Start()
@@ -34,33 +39,12 @@ public class GameManager : MonoBehaviour
           PlayerPrefs.SetInt("Lives", 3); //initial lives
         }
 
-    public int lives;
-
-      void start ()
-      {
-        updateui();
-      }
-
-      void updateui ()
-      {
-        Lives = PlayerPrefs.GetInt("Lives");
-         GameObject.Find("livesUI").GetComponent<Text>().text = "Lives : " + Lives;
-      }
-
-      void OnCollisionEnter(Collision collision)
-      {
-        if (collision.GameObject.CompareTag("Enemy"))
-        {
-          lives -= 1;
-          lives = PlayerPrefs.GetInt("lives")
-           PlayerPrefs.SetInt("Lives", lives);
-
-        if (lives <= 0)
-        {
-          gameOver = true
-          Debug.Log ("Game Over")
-          Destory (this.GameObject);
-        }
-      }
-
+    public void GameOver()
+    {
+        isPlayerAlive = false;
+        CancelInvoke();
+        gameOverText.gameObject.SetActive(true);
+        restartText.gameObject.SetActive(true);
+        cloudSpeed = 0;
     }
+  }
