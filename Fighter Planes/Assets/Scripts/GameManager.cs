@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject enemy;
+    public GameObject powerup;
 
     // Start is called before the first frame update
     void Start()
@@ -18,11 +19,22 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void CreateEnemy()
     {
         Instantiate(enemy, new Vector3(Random.Range(-9f, 9f), 9f, 0), Quaternion.identity);
     }
+
+    public void PlayPowerUp()
+   {
+       AudioSource.PlayClipAtPoint(powerUp, Camera.main.transform.position);
+   }
+
+   public void PlayPowerDown()
+   {
+       AudioSource.PlayClipAtPoint(powerDown, Camera.main.transform.position);
+   }
+}
 }
