@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public GameObject enemy;
     public GameObject powerup;
 
+    public AudioClip powerUp
+    public AudioClip powerDown
+
     // Start is called before the first frame update
     void Start()
     {
